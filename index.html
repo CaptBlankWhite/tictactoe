@@ -21,6 +21,12 @@
     <script defer src="script/script.js"></script>
   </head>
   <body>
+    <div class="start-screen">
+      <div class="start-container">
+        <img src="images/title-game.svg" alt="Tic Tac Toe" />
+        <button class="start-btn">start game</button>
+      </div>
+    </div>
     <div class="game-container">
       <header>
         <img src="images/title-game.svg" alt="Tic Tac Toe" />
@@ -31,20 +37,20 @@
             <span class="x-turn">X's Turn</span>
             <span class="o-turn">O's Turn</span>
           </div>
-          <div class="game-table" id="game-table">
-            <div class="cell" data-cell-index="0">X</div>
-            <div class="cell" data-cell-index="1">O</div>
-            <div class="cell" data-cell-index="2"></div>
-            <div class="cell" data-cell-index="3"></div>
-            <div class="cell" data-cell-index="4"></div>
-            <div class="cell" data-cell-index="5"></div>
-            <div class="cell" data-cell-index="6"></div>
-            <div class="cell" data-cell-index="7"></div>
-            <div class="cell" data-cell-index="8"></div>
+          <div class="game-table" id="table">
+            <div class="cell" id="0">X</div>
+            <div class="cell" id="1">O</div>
+            <div class="cell" id="2"></div>
+            <div class="cell" id="3"></div>
+            <div class="cell" id="4"></div>
+            <div class="cell" id="5"></div>
+            <div class="cell" id="6"></div>
+            <div class="cell" id="7"></div>
+            <div class="cell" id="8"></div>
           </div>
           <div class="result-message" id="resultMessage">
             <div data-result-message-text></div>
-            <button class="restart-btn" id="restart-btn">Play Again</button>
+            <button class="restart" id="restart-btn">Play Again</button>
           </div>
         </section>
       </main>
