@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="styles/normalize-fwd.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap"
+      rel="stylesheet" />
+    <style type="text/css">
+      body {
+        cursor: url(http://i272.photobucket.com/albums/jj181/toinha2008/pirurosa.gif),
+          url(http://i272.photobucket.com/albums/jj181/toinha2008/pirurosa.gif),
+          auto;
+      }
+    </style>
+    <script defer src="script/script.js"></script>
+  </head>
+  <body>
+    <div class="game-container">
+      <header>
+        <img src="images/title-game.svg" alt="Tic Tac Toe" />
+      </header>
+      <main>
+        <section>
+          <div class="turn">
+            <span class="x-turn">X's Turn</span>
+            <span class="o-turn">O's Turn</span>
+          </div>
+          <div class="game-table" id="game-table">
+            <div class="cell" data-cell-index="0">X</div>
+            <div class="cell" data-cell-index="1">O</div>
+            <div class="cell" data-cell-index="2"></div>
+            <div class="cell" data-cell-index="3"></div>
+            <div class="cell" data-cell-index="4"></div>
+            <div class="cell" data-cell-index="5"></div>
+            <div class="cell" data-cell-index="6"></div>
+            <div class="cell" data-cell-index="7"></div>
+            <div class="cell" data-cell-index="8"></div>
+          </div>
+          <div class="result-message" id="resultMessage">
+            <div data-result-message-text></div>
+            <button class="restart-btn" id="restart-btn">Play Again</button>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

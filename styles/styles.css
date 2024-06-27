@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FADD9B;
+    background-image: url("https://media.giphy.com/media/l378nVnWg2GtIEAgM/giphy.gif");
+    background-position: 50px 30px;
+    background-size: 70px 70px;
+    font-family: "Quicksand", sans-serif;  
+}
+
+.game-container {
+    border: solid #B6D0FF 0.5rem;
+    border-radius: 1rem;
+    background: #3B5C9F;
+    max-width: 40%;
+    margin: 3.5rem auto;
+}
+
+img {
+    margin: 0 auto;
+    padding: 1rem;
+
+
+}
+span {
+    font-size: 1rem;
+    background-color: #FADD9B;
+    color: #3B5C9F;
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+.turn {
+    display: flex;
+    justify-content: center;
+    /* gap: 0.5rem; */
+    background-color: #FADD9B;
+    margin: 0 12.7rem;
+    border-radius: 2rem;
+}
+
+.x-turn {
+    background-color: #efc4d3;
+}
+
+
+.restart-btn {
+    display: none;
+}
+
+.game-table {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
+    padding: 2rem;
+}
+
+.cell {
+    width: 8rem;
+    height: 8rem;
+    border: .1875rem solid #B6D0FF;
+    font-size: 5rem;
+    text-align: center;
+    color: #FADD9B;
+    font-weight: 500;
+
+}
+
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3n + 1) {
+    border-left: none;
+}
+
+.cell:nth-child(3n + 3) {
+    border-right: none;
+}
+
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+    border-bottom: none;
+}
+
