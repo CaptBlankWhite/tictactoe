@@ -116,6 +116,11 @@ span {
     border-radius: 2rem;
     transition: all 0.3s ease;
   }
+  
+  .slider-switch {
+    left: 50%
+  }
+
 
 .game-table {
     display: grid;

@@ -46,6 +46,9 @@ function cellClicked() {
   }
   placeSymbol(this, cellIndex);
   checkWinner();
+  //   element.style.pointerEvents = "none"; // so user can't click!
+  //   gameTable.style.pointerEvents = "none";
+  //   let botDelay =
 }
 
 function placeSymbol(cell, index) {
