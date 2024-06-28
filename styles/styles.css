@@ -13,6 +13,11 @@ body {
     text-align: center;
 }
 
+.site-wrapper {
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
 /* START SCREEN */
 
 .start-screen {
@@ -85,17 +90,32 @@ span {
 .player-turn {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
     background-color: #FADD9B;
-    margin: 0 12.7rem;
+    margin: 0 auto;
     border-radius: 2rem;
+    position: relative;
+    z-index: 2;
+    max-width: 35%;
+    text-align: center;
 }
 
-.x-turn {
-    background-color: #efc4d3;
+.x-turn,
+.o-turn {
+    background-color: transparent;
+    z-index: 2;
+    text-align: center;
 }
 
-
+.slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #efc4d3;
+    border-radius: 2rem;
+    transition: all 0.3s ease;
+  }
 
 .game-table {
     display: grid;
@@ -147,7 +167,13 @@ span {
     background: #efc4d3;
     max-width: 20%;
     /* margin: 0 auto; */
+    display: none;
 }
+
+.game-win .show {
+    display: block;
+}
+
 
 .winner-message h1 {
     font-size: 2.5rem;
