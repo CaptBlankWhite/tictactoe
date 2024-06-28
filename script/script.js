@@ -26,18 +26,39 @@ let isRunning = false;
 function startGame() {
   startScreen.classList.add("hide");
   gameTable.classList.add("show");
+  renderGame();
 }
 
 startBtn.addEventListener("click", startGame);
 
 function renderGame() {
   cells.forEach((cell) => cell.addEventListener("click", cellClicked));
+  isRunning = true;
 }
-
-renderGame();
 
 function cellClicked() {
   //   console.log("clicked!");
   const cellIndex = this.getAttribute("id");
   console.log(cellIndex);
+
+  if (spaces[cellIndex] != "" || !isRunning) {
+    return;
+  }
+  placeSymbol(this, cellIndex);
+  checkWinner();
 }
+
+function placeSymbol(cell, index) {
+  spaces[index] = currentPlayer;
+  cell.textContent = currentPlayer;
+}
+
+function changePlayer() {
+  currentPlayer = currentPlayer == "X" ? vsComputer() : "X";
+}
+
+function vsComputer() {}
+
+// function checkWinner {
+
+// }
