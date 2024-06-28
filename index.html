@@ -24,7 +24,7 @@
     <div class="start-screen">
       <div class="start-container">
         <img src="images/title-game.svg" alt="Tic Tac Toe" />
-        <button class="start-btn">start game</button>
+        <button class="start-btn">Start Game</button>
       </div>
     </div>
     <div class="game-container">
@@ -33,9 +33,12 @@
       </header>
       <main>
         <section>
-          <div class="turn">
-            <span class="x-turn">X's Turn</span>
-            <span class="o-turn">O's Turn</span>
+          <div class="turn-tracker">
+            <div class="player-turn">
+              <span class="x-turn">X's Turn</span>
+              <span class="o-turn">O's Turn</span>
+              <div class="slider"></div>
+            </div>
           </div>
           <div class="game-table" id="table">
             <div class="cell" id="0">X</div>
@@ -48,9 +51,11 @@
             <div class="cell" id="7"></div>
             <div class="cell" id="8"></div>
           </div>
-          <div class="result-message" id="resultMessage">
-            <div data-result-message-text></div>
-            <button class="restart" id="restart-btn">Play Again</button>
+          <div class="game-win">
+            <div class="winner-message">
+              <h1 class="message">Player X won!</h1>
+              <button class="restart-btn">Play Again</button>
+            </div>
           </div>
         </section>
       </main>
