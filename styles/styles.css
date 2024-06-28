@@ -172,7 +172,7 @@ span {
     background: #efc4d3;
     max-width: 20%;
     /* margin: 0 auto; */
-    display: none;
+    /* display: none; */
 }
 
 .game-win .show {
