@@ -25,15 +25,9 @@ body {
     border-radius: 1rem;
     background: #3B5C9F;
     max-width: 40%;
-    margin: 3.5rem auto;
+    margin: 14rem auto;
     /* display: none; */
 }
-
-.start-screen.hide {
-    display: none;
-}
-
-
 
 .start-container {
     padding: 5rem;
@@ -64,14 +58,12 @@ button:active {
     border-radius: 1rem;
     background: #3B5C9F;
     max-width: 40%;
-    margin: 3.5rem auto;
+    margin: 5.5rem auto;
     display: none; 
     /* HIDE GAME CONTAINER FOR NOW */
 }
 
-.game-container.show {
-    display: block;
-}
+
 
 img {
     margin: 0 auto;
@@ -79,7 +71,7 @@ img {
 
 
 }
-span {
+/* span {
     font-size: 1rem;
     background-color: #FADD9B;
     color: #3B5C9F;
@@ -106,7 +98,7 @@ span {
     text-align: center;
 }
 
-.slider{
+.slider {
     position: absolute;
     top: 0;
     left: 0;
@@ -117,9 +109,71 @@ span {
     transition: all 0.3s ease;
   }
   
-  .slider-switch {
+  .slider .o-active {
     left: 50%
+  } */
+
+/* testing slider */
+
+.game-container .turn-tracker{
+    /* padding: 7px; */
+    border-radius: 1.25rem;
+    background: #FADD9B;
+    /* added */
+    max-width: 50%;
+    margin: 0 auto;
   }
+  .game-container .player-turn{
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+  }
+  .player-turn span{
+    position: relative;
+    z-index: 2;
+    color: #3B5C9F;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    cursor: default;
+    user-select: none;
+    transition: all 0.3 ease;
+  }
+  .player-turn.active span:first-child{
+    color: #fff;
+  }
+  .player-turn.active span:last-child{
+    color: #56baed;
+  }
+  .player-turn span:first-child{
+    color: #3B5C9F;
+  }
+  .player-turn .slider{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #efc4d3;
+    border-radius: 1.25rem;
+    transition: all 0.3s ease;
+  }
+  .player-turn.active .slider{
+    left: 50%;
+  }
+  .player-turn.active span:first-child{
+    color: #3B5C9F;
+  }
+  .player-turn.active span:nth-child(2){
+    color: #3B5C9F;
+  }
+  .player-turn.active .slider{
+    left: 50%;
+  }
+
 
 
 .game-table {
@@ -160,28 +214,30 @@ span {
 .cell:nth-child(7) {
     border-bottom: none;
 }
+/* testing slider */
 
 .game-win {
     top: 40%;
-    left: 40%;
+    left: 38.9%;
     position: absolute;
-    width: 40.625rem;
+    width: 21.3rem;
     height: 15rem;
     border: solid #FADD9B 0.5rem;
     border-radius: 1rem;
     background: #efc4d3;
-    max-width: 20%;
+    /* max-width: 30%; */
     /* margin: 0 auto; */
-    /* display: none; */
+    display: none;
 }
 
-.game-win .show {
+/* .game-win.show {
     display: block;
-}
+} */
 
 
 .winner-message h1 {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    color: #3B5C9F;
 }
 
 .restart-btn {
@@ -196,4 +252,12 @@ span {
     padding: 12px 16px;
     transition: all .14s ease-out;
     box-shadow: -4px 4px 0 #d7a9a9;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
 }

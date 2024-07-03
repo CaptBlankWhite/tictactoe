@@ -6,18 +6,10 @@ const gameTable = document.querySelector(".game-container");
 const winScreen = document.querySelector(".game-win");
 const winMessage = document.querySelector(".message");
 const restartBtn = document.querySelector(".restart-btn");
+const playerTurn = document.querySelector(".player-turn");
+const slider = document.querySelector(".slider");
+const message = document.querySelector(".message");
 const cells = Array.from(document.querySelectorAll(".cell"));
-
-// const winPatterns = [
-//   [0, 1, 2],
-//   [3, 4, 5],
-//   [6, 7, 8],
-//   [0, 3, 6],
-//   [1, 4, 7],
-//   [2, 5, 8],
-//   [0, 4, 8],
-//   [2, 4, 6],
-// ];
 
 let spaces = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
@@ -28,6 +20,7 @@ function startGame() {
   startScreen.classList.add("hide");
   gameTable.classList.add("show");
   renderGame();
+  playerTurn.setAttribute("class", "player-turn player"); // testing tracker
 }
 
 startBtn.addEventListener("click", startGame);
@@ -40,17 +33,18 @@ function renderGame() {
 function cellClicked() {
   //   console.log("clicked!");
   const cellIndex = this.getAttribute("id");
-  console.log(cellIndex);
-
+  //   console.log(cellIndex);
   if (spaces[cellIndex] != "" || !isRunning) {
     return;
   }
   placeSymbol(this, cellIndex);
+
   checkWinner();
-  //   element.style.pointerEvents = "none"; // so user can't click!
-  //   gameTable.style.pointerEvents = "none";
-  //   let botDelay =
-  vsComputer();
+  gameTable.style.pointerEvents = "none";
+  let botDelay = Math.random() * 1000 + 200;
+  setTimeout(() => {
+    vsComputer();
+  }, botDelay);
 }
 
 function placeSymbol(cell, index) {
@@ -60,21 +54,33 @@ function placeSymbol(cell, index) {
 
 function changePlayer() {
   currentPlayer = currentPlayer == "X" ? "O" : "X";
+  if (currentPlayer === "X") {
+    playerTurn.classList.remove("active");
+  } else {
+    playerTurn.classList.add("active");
+  }
 }
 
 function vsComputer() {
   let botOptions = []; //create an empty array
-  for (let i = 0; i < cells.length; i++) {
-    // figure out which cells are empty then push to the array
-    if (cells[i].textContent === "") {
-      botOptions.push(cells[i]);
+  if (isRunning) {
+    for (let i = 0; i < cells.length; i++) {
+      // figure out which cells are empty then push to the array
+      if (cells[i].textContent === "") {
+        botOptions.push(cells[i]);
+      }
+      console.log(botOptions);
     }
-    console.log(botOptions);
+    const emptyIndex = Math.floor(Math.random() * botOptions.length); //generate random index from the array
+    console.log(emptyIndex);
+    botOptions[emptyIndex].textContent = "O";
+    botOptions[emptyIndex].style.pointerEvents = "none";
+    checkWinner();
+    gameTable.style.pointerEvents = "auto";
+    //   changePlayer();
+    //place O into selected cell
+    //if game is running changePlayer()
   }
-  const emptyIndex = Math.floor(Math.random() * botOptions.length); //generate random index from the array
-  console.log(emptyIndex);
-  placeSymbol(currentPlayer); //place O into selected cell
-  //if game is running changePlayer()
 }
 
 function checkWinningRow(cell1, cell2, cell3, symbol) {
@@ -106,14 +112,41 @@ function checkWinner() {
     cells.forEach((cell) => {
       cell.style.pointerEvents = "none";
     });
-    gameTable.style.pointerEvents = "none";
-    gameTable.classList.remove("show");
-    winScreen.classList.add("show");
-  } else {
-    if (cells.every(isTrue)) {
-      gameTable.classList.remove("show");
+    console.log("someone won!");
+    setTimeout(() => {
+      message.textContent = `${currentPlayer} wins!`;
+      // gameTable.style.pointerEvents = "none";
       winScreen.classList.add("show");
-      console.log("game is a draw");
-    }
+    }, 1000);
+  } else if (cells.every(isTrue)) {
+    setTimeout(() => {
+      winScreen.classList.add("show");
+      message.textContent = "It's a tie! Click the button to play again.";
+      console.log("game is a draw!");
+    }, 1000);
+  } else {
+    changePlayer();
   }
 }
+
+// function reset() {
+//   //   isRunning = true;
+//   cells.forEach((cell) => {
+//     cell.textContent = "";
+//     cell.style.pointerEvents = "auto";
+//   });
+//   gameTable.style.pointerEvents = "auto";
+// }
+
+//   winScreen.classList.remove("show");
+//   reset();
+//   startGame();
+function restart() {
+  currentPlayer = "X";
+  spaces = ["", "", "", "", "", "", "", "", ""];
+  cells.forEach((cell) => (cell.textContent = " "));
+  isRunning = true;
+  winScreen.classList.add("hide");
+}
+
+restartBtn.addEventListener("click", restart);
