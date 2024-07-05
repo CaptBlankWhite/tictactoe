@@ -10,6 +10,11 @@ const playerTurn = document.querySelector(".player-turn");
 const slider = document.querySelector(".slider");
 const message = document.querySelector(".message");
 const cells = Array.from(document.querySelectorAll(".cell"));
+const bgm = document.querySelector("#bgm");
+const clickSound1 = document.querySelector("#click-1");
+const clickSound2 = document.querySelector("#click-2");
+const winSound = document.querySelector("#win-sound");
+const drawSound = document.querySelector("#draw-sound");
 
 let spaces = ["", "", "", "", "", "", "", "", ""];
 let currentPlayer = "X";
@@ -19,6 +24,7 @@ let gameWon = false;
 function startGame() {
   startScreen.classList.add("hide");
   gameTable.classList.add("show");
+  bgm.pause();
   renderGame();
   playerTurn.setAttribute("class", "player-turn player"); // testing tracker
 }
@@ -38,7 +44,7 @@ function cellClicked() {
     return;
   }
   placeSymbol(this, cellIndex);
-
+  clickSound1.play();
   checkWinner();
   gameTable.style.pointerEvents = "none";
   let botDelay = Math.random() * 1000 + 200;
@@ -75,11 +81,12 @@ function vsComputer() {
     console.log(emptyIndex);
     botOptions[emptyIndex].textContent = "O";
     botOptions[emptyIndex].style.pointerEvents = "none";
+    clickSound2.play();
     checkWinner();
     gameTable.style.pointerEvents = "auto";
     //   changePlayer();
     //place O into selected cell
-    //if game is running changePlayer()
+    // if game is running changePlayer()
   }
 }
 
@@ -112,17 +119,20 @@ function checkWinner() {
     cells.forEach((cell) => {
       cell.style.pointerEvents = "none";
     });
-    console.log("someone won!");
+    // console.log("someone won!");
     setTimeout(() => {
-      message.textContent = `${currentPlayer} wins!`;
-      // gameTable.style.pointerEvents = "none";
+      winSound.play();
+      message.textContent = `Player ${currentPlayer} wins!`;
+      gameTable.style.pointerEvents = "auto";
       winScreen.classList.add("show");
     }, 1000);
   } else if (cells.every(isTrue)) {
     setTimeout(() => {
-      winScreen.classList.add("show");
+      drawSound.play();
       message.textContent = "It's a tie! Click the button to play again.";
-      console.log("game is a draw!");
+      gameTable.style.pointerEvents = "auto";
+      winScreen.classList.add("show");
+      //   console.log("game is a draw!");
     }, 1000);
   } else {
     changePlayer();
@@ -142,11 +152,16 @@ function checkWinner() {
 //   reset();
 //   startGame();
 function restart() {
-  currentPlayer = "X";
-  spaces = ["", "", "", "", "", "", "", "", ""];
-  cells.forEach((cell) => (cell.textContent = " "));
-  isRunning = true;
-  winScreen.classList.add("hide");
+  //   spaces = ["", "", "", "", "", "", "", "", ""];
+  //   cells.forEach((cell) => (cell.textContent = " "));
+  //   cells.forEach((cell) => (cell.style.pointerEvents = "auto"));
+  //   isRunning = true;
+  //   winScreen.classList.remove("show");
+  //   renderGame();
+  //   gameTable.style.pointerEvents = "auto";
+  //   currentPlayer = "X";
+  //   gameTable.style.pointerEvents = "auto";
+  location.reload();
 }
 
 restartBtn.addEventListener("click", restart);

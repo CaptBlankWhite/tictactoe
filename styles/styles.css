@@ -218,7 +218,7 @@ img {
 
 .game-win {
     top: 40%;
-    left: 38.9%;
+    left: 38.6%;
     position: absolute;
     width: 21.3rem;
     height: 15rem;
@@ -234,10 +234,14 @@ img {
     display: block;
 } */
 
+.winner-message {
+    margin-top: 3.5rem;
+}
 
 .winner-message h1 {
     font-size: 1.5rem;
     color: #3B5C9F;
+    padding: 0.5rem;
 }
 
 .restart-btn {
@@ -260,4 +264,10 @@ img {
 
 .show {
     display: block;
+}
+
+footer {
+    text-align: left;
+    margin-left: 0.5rem;
+    margin-bottom: 0;
 }
