@@ -139,18 +139,6 @@ function checkWinner() {
   }
 }
 
-// function reset() {
-//   //   isRunning = true;
-//   cells.forEach((cell) => {
-//     cell.textContent = "";
-//     cell.style.pointerEvents = "auto";
-//   });
-//   gameTable.style.pointerEvents = "auto";
-// }
-
-//   winScreen.classList.remove("show");
-//   reset();
-//   startGame();
 function restart() {
   //   spaces = ["", "", "", "", "", "", "", "", ""];
   //   cells.forEach((cell) => (cell.textContent = " "));
