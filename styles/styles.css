@@ -9,12 +9,13 @@ body {
     background-image: url("https://media.giphy.com/media/l378nVnWg2GtIEAgM/giphy.gif");
     background-position: 50px 30px;
     background-size: 70px 70px;
-    font-family: "Quicksand", sans-serif;  
+    font-family: "Quicksand", sans-serif;
     text-align: center;
 }
 
 .site-wrapper {
     max-width: 90rem;
+    max-height: 51.875rem;
     margin: 0 auto;
 }
 
@@ -47,7 +48,7 @@ body {
 }
 
 button:active {
-    box-shadow:none;
+    box-shadow: none;
     transform: translate(-4px, 4px);
 }
 
@@ -58,7 +59,7 @@ button:active {
     background: #3B5C9F;
     max-width: 40%;
     margin: 6.5rem auto;
-    display: none; 
+    display: none;
 }
 
 
@@ -70,19 +71,21 @@ img {
 
 }
 
-.game-container .turn-tracker{
+.game-container .turn-tracker {
     border-radius: 1.25rem;
     background: #FADD9B;
     max-width: 50%;
     margin: 0 auto;
-  }
-  .game-container .player-turn{
+}
+
+.game-container .player-turn {
     width: 100%;
     display: flex;
     position: relative;
     justify-content: space-between;
-  }
-  .player-turn span{
+}
+
+.player-turn span {
     position: relative;
     z-index: 2;
     color: #3B5C9F;
@@ -94,17 +97,21 @@ img {
     cursor: default;
     user-select: none;
     transition: all 0.3 ease;
-  }
-  .player-turn.active span:first-child{
+}
+
+.player-turn.active span:first-child {
     color: #fff;
-  }
-  .player-turn.active span:last-child{
+}
+
+.player-turn.active span:last-child {
     color: #56baed;
-  }
-  .player-turn span:first-child{
+}
+
+.player-turn span:first-child {
     color: #3B5C9F;
-  }
-  .player-turn .slider{
+}
+
+.player-turn .slider {
     position: absolute;
     top: 0;
     left: 0;
@@ -113,19 +120,23 @@ img {
     background: #efc4d3;
     border-radius: 1.25rem;
     transition: all 0.3s ease;
-  }
-  .player-turn.active .slider{
+}
+
+.player-turn.active .slider {
     left: 50%;
-  }
-  .player-turn.active span:first-child{
+}
+
+.player-turn.active span:first-child {
     color: #3B5C9F;
-  }
-  .player-turn.active span:nth-child(2){
+}
+
+.player-turn.active span:nth-child(2) {
     color: #3B5C9F;
-  }
-  .player-turn.active .slider{
+}
+
+.player-turn.active .slider {
     left: 50%;
-  }
+}
 
 
 
@@ -145,7 +156,7 @@ img {
     text-align: center;
     color: #FADD9B;
     font-weight: 500;
-    
+
 }
 
 .cell:first-child,
@@ -169,7 +180,7 @@ img {
 }
 
 .game-win {
-    top: 47%;
+    top: 50%;
     left: 38.6%;
     position: absolute;
     width: 21.3rem;
@@ -193,14 +204,16 @@ img {
 
 @media (min-width: 120rem) {
     .start-screen {
-        margin-top: 17rem;
+        margin-top: 20%;
     }
+
     .game-win {
         left: 41.20%;
         top: 48%;
     }
+
     .game-container {
-        margin-top: 9rem;
+        margin-top: 10%;
     }
 }
 
