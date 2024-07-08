@@ -25,7 +25,7 @@ body {
     border-radius: 1rem;
     background: #3B5C9F;
     max-width: 40%;
-    margin: 14rem auto;
+    margin: 15rem auto;
 }
 
 .start-container {
@@ -57,7 +57,7 @@ button:active {
     border-radius: 1rem;
     background: #3B5C9F;
     max-width: 40%;
-    margin: 5.5rem auto;
+    margin: 6.5rem auto;
     display: none; 
 }
 
@@ -169,7 +169,7 @@ img {
 }
 
 .game-win {
-    top: 40%;
+    top: 47%;
     left: 38.6%;
     position: absolute;
     width: 21.3rem;
@@ -189,6 +189,19 @@ img {
     font-size: 1.5rem;
     color: #3B5C9F;
     padding: 0.5rem;
+}
+
+@media (min-width: 120rem) {
+    .start-screen {
+        margin-top: 17rem;
+    }
+    .game-win {
+        left: 41.20%;
+        top: 48%;
+    }
+    .game-container {
+        margin-top: 9rem;
+    }
 }
 
 .restart-btn {
@@ -222,6 +235,8 @@ footer {
 a {
     text-decoration: none;
     color: #a47171;
+    position: absolute;
+    bottom: 0;
 }
 
 audio {
