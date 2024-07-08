@@ -26,7 +26,7 @@ function startGame() {
   gameTable.classList.add("show");
   bgm.pause();
   renderGame();
-  playerTurn.setAttribute("class", "player-turn player"); // testing tracker
+  playerTurn.setAttribute("class", "player-turn player");
 }
 
 startBtn.addEventListener("click", startGame);
@@ -68,25 +68,21 @@ function changePlayer() {
 }
 
 function vsComputer() {
-  let botOptions = []; //create an empty array
+  let botOptions = [];
   if (isRunning) {
     for (let i = 0; i < cells.length; i++) {
-      // figure out which cells are empty then push to the array
       if (cells[i].textContent === "") {
         botOptions.push(cells[i]);
       }
       console.log(botOptions);
     }
-    const emptyIndex = Math.floor(Math.random() * botOptions.length); //generate random index from the array
+    const emptyIndex = Math.floor(Math.random() * botOptions.length);
     console.log(emptyIndex);
     botOptions[emptyIndex].textContent = "O";
     botOptions[emptyIndex].style.pointerEvents = "none";
     clickSound2.play();
     checkWinner();
     gameTable.style.pointerEvents = "auto";
-    //   changePlayer();
-    //place O into selected cell
-    // if game is running changePlayer()
   }
 }
 
@@ -129,10 +125,10 @@ function checkWinner() {
   } else if (cells.every(isTrue)) {
     setTimeout(() => {
       drawSound.play();
-      message.textContent = "It's a tie! Click the button to play again.";
+      message.textContent = "Draw! Click the button to play again.";
       gameTable.style.pointerEvents = "auto";
       winScreen.classList.add("show");
-      //   console.log("game is a draw!");
+      //   console.log("draw!");
     }, 1000);
   } else {
     changePlayer();
@@ -140,15 +136,6 @@ function checkWinner() {
 }
 
 function restart() {
-  //   spaces = ["", "", "", "", "", "", "", "", ""];
-  //   cells.forEach((cell) => (cell.textContent = " "));
-  //   cells.forEach((cell) => (cell.style.pointerEvents = "auto"));
-  //   isRunning = true;
-  //   winScreen.classList.remove("show");
-  //   renderGame();
-  //   gameTable.style.pointerEvents = "auto";
-  //   currentPlayer = "X";
-  //   gameTable.style.pointerEvents = "auto";
   location.reload();
 }
 

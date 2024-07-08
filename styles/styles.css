@@ -26,7 +26,6 @@ body {
     background: #3B5C9F;
     max-width: 40%;
     margin: 14rem auto;
-    /* display: none; */
 }
 
 .start-container {
@@ -60,7 +59,6 @@ button:active {
     max-width: 40%;
     margin: 5.5rem auto;
     display: none; 
-    /* HIDE GAME CONTAINER FOR NOW */
 }
 
 
@@ -71,55 +69,10 @@ img {
 
 
 }
-/* span {
-    font-size: 1rem;
-    background-color: #FADD9B;
-    color: #3B5C9F;
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
-}
-
-.player-turn {
-    display: flex;
-    justify-content: center;
-    background-color: #FADD9B;
-    margin: 0 auto;
-    border-radius: 2rem;
-    position: relative;
-    z-index: 2;
-    max-width: 35%;
-    text-align: center;
-}
-
-.x-turn,
-.o-turn {
-    background-color: transparent;
-    z-index: 2;
-    text-align: center;
-}
-
-.slider {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: #efc4d3;
-    border-radius: 2rem;
-    transition: all 0.3s ease;
-  }
-  
-  .slider .o-active {
-    left: 50%
-  } */
-
-/* testing slider */
 
 .game-container .turn-tracker{
-    /* padding: 7px; */
     border-radius: 1.25rem;
     background: #FADD9B;
-    /* added */
     max-width: 50%;
     margin: 0 auto;
   }
@@ -214,7 +167,6 @@ img {
 .cell:nth-child(7) {
     border-bottom: none;
 }
-/* testing slider */
 
 .game-win {
     top: 40%;
@@ -225,14 +177,9 @@ img {
     border: solid #FADD9B 0.5rem;
     border-radius: 1rem;
     background: #efc4d3;
-    /* max-width: 30%; */
-    /* margin: 0 auto; */
     display: none;
 }
 
-/* .game-win.show {
-    display: block;
-} */
 
 .winner-message {
     margin-top: 3.5rem;
