@@ -219,6 +219,11 @@ footer {
     margin-bottom: 0;
 }
 
+a {
+    text-decoration: none;
+    color: #a47171;
+}
+
 audio {
     display: none;
 }
