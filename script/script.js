@@ -121,7 +121,7 @@ function checkWinner() {
       message.textContent = `Player ${currentPlayer} wins!`;
       gameTable.style.pointerEvents = "auto";
       winScreen.classList.add("show");
-    }, 1000);
+    }, 1300);
   } else if (cells.every(isTrue)) {
     setTimeout(() => {
       drawSound.play();
@@ -129,7 +129,7 @@ function checkWinner() {
       gameTable.style.pointerEvents = "auto";
       winScreen.classList.add("show");
       //   console.log("draw!");
-    }, 1000);
+    }, 1300);
   } else {
     changePlayer();
   }
