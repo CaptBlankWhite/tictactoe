@@ -69,14 +69,47 @@ function changePlayer() {
 
 function vsComputer() {
   let botOptions = [];
+  let cellloc = [];
   if (isRunning) {
     for (let i = 0; i < cells.length; i++) {
       if (cells[i].textContent === "") {
         botOptions.push(cells[i]);
+        cellloc.push(i);
       }
       console.log(botOptions);
     }
-    const emptyIndex = Math.floor(Math.random() * botOptions.length);
+
+    let isPlayerWinning = false
+    let iscomputerWinning = false
+    let index = 0;
+
+    for (let i = 0; i < botOptions.length; i++) {
+      let temp = cells.map((cell) => cell.cloneNode(true));
+      temp[cellloc[i]].textContent = "O";
+      if (checkWinningRow(temp, "O")) {
+        iscomputerWinning = true;
+        index = i;
+        break;
+      }
+
+      temp[cellloc[i]].textContent = "X";
+      if (checkWinningRow(temp, "X")) {
+        isPlayerWinning = true;
+        index = i;
+        break;
+      }
+      
+
+    }
+
+
+    let emptyIndex = 0
+    if (!isPlayerWinning && !iscomputerWinning) {
+      emptyIndex = Math.floor(Math.random() * botOptions.length);
+    } else {
+      emptyIndex = index;
+    }
+
     console.log(emptyIndex);
     botOptions[emptyIndex].textContent = "O";
     botOptions[emptyIndex].style.pointerEvents = "none";
@@ -86,29 +119,32 @@ function vsComputer() {
   }
 }
 
-function checkWinningRow(cell1, cell2, cell3, symbol) {
-  if (
-    cell1.textContent === symbol &&
-    cell2.textContent === symbol &&
-    cell3.textContent === symbol
-  ) {
-    return true;
-  } else {
-    return false;
+function checkWinningRow(cell, symbol) {
+  let flag = false
+
+  let diagonal1 = (cells[0].textContent === symbol && cells[4].textContent === symbol && cells[8].textContent === symbol);
+  let diagonal2 = (cells[2].textContent === symbol && cells[4].textContent === symbol && cells[6].textContent === symbol);
+  
+  if (diagonal1 || diagonal2) {
+    flag= true;
   }
+
+  for (let i = 0; i < 3; i++) {
+    let rowcheck = (cell[i*3].textContent === symbol && cell[i*3+1].textContent === symbol && cell[i*3+2].textContent === symbol);
+    let colcheck = (cell[i].textContent === symbol && cell[i+3].textContent === symbol && cell[i+6].textContent === symbol);
+    if (rowcheck || colcheck) {
+      flag= true;
+    }
+  }
+  return flag;
+
+
 }
 
 function checkWinner() {
   const isTrue = (currentValue) => currentValue.textContent !== "";
   if (
-    checkWinningRow(cells[0], cells[1], cells[2], currentPlayer) ||
-    checkWinningRow(cells[3], cells[4], cells[5], currentPlayer) ||
-    checkWinningRow(cells[6], cells[7], cells[8], currentPlayer) ||
-    checkWinningRow(cells[0], cells[3], cells[6], currentPlayer) ||
-    checkWinningRow(cells[1], cells[4], cells[7], currentPlayer) ||
-    checkWinningRow(cells[2], cells[5], cells[8], currentPlayer) ||
-    checkWinningRow(cells[0], cells[4], cells[8], currentPlayer) ||
-    checkWinningRow(cells[2], cells[4], cells[6], currentPlayer)
+    checkWinningRow(cells, currentPlayer)
   ) {
     gameWon = true;
     isRunning = false;
